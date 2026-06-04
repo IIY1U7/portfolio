@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio Roblox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Menu du haut */
+        nav {
+            position: absolute;
+            top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Pseudo au centre */
+        .pseudo-container {
+            text-align: center;
+            background: #111111;
+            padding: 40px 60px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            font-size: 50px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* Grille des catégories (Assets) */
+        .assets-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        /* La case d'un asset (ex: Flowers) */
+        .asset-card {
+            background: #161616;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            width: 220px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .asset-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffffff;
+            background: #1c1c1c;
+        }
+
+        .asset-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .asset-card p {
+            font-family: 'Arial', sans-serif;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* Fenêtre Pop-up (Modale) pour voir les screens */
+        .modal {
+            display: none; /* Cachée par défaut */
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background: #111;
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal h2 { margin-bottom: 20px; }
+
+        /* Grille d'images dans la pop-up */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#">PORTFOLIO</a>
+    </nav>
+
+    <!-- Remplace TON_PSEUDO par ton pseudo Roblox -->
+    <div class="pseudo-container">
+        TON_PSEUDO
+    </div>
+
+    <!-- Grille des catégories -->
+    <div class="assets-grid">
+        
+        <!-- CASE FLOWERS -->
+        <div class="asset-card" onclick="openModal('flowers-modal')">
+            <h3>🌸 FLOWERS</h3>
+            <p>Roblox 3D Assets</p>
+        </div>
+
+        <!-- Tu pourras copier/coller ce bloc en dessous pour ajouter d'autres catégories (ex: Épées, Voitures...) -->
+
+    </div>
+
+    <!-- POP-UP FLOWERS -->
+    <div id="flowers-modal" class="modal">
+        <div class="modal-content">
+            <h2>Mes Créations de Fleurs Roblox</h2>
+            <div class="gallery">
+                <!-- METS LES LIENS DE TES IMAGES ICI -->
+                <img src="https://via.placeholder.com/300x200?text=Fleur+1" alt="Fleur Roblox">
+                <img src="https://via.placeholder.com/300x200?text=Fleur+2" alt="Fleur Roblox">
+            </div>
+            <button class="close-btn" onclick="closeModal('flowers-modal')">Fermer</button>
+        </div>
+    </div>
+
+    <script>
+        // Fonctions pour ouvrir/fermer la pop-up
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
